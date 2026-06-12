@@ -210,6 +210,28 @@ section ul li {
   font-size: 0.95rem;
 }
 
+.game-photo {
+  margin: 18px 0 0;
+}
+
+.game-photo img {
+  display: block;
+  width: min(100%, 460px);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 36px rgba(28, 45, 58, 0.12);
+}
+
+.character-photo img {
+  width: min(100%, 150px);
+}
+
+.game-photo figcaption {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
 .robotics-section {
   position: relative;
   overflow: hidden;
