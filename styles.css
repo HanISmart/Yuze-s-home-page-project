@@ -57,13 +57,35 @@ nav {
   font-weight: 600;
   padding: 12px 14px;
   border-radius: 12px;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  animation: toc-link-in 0.45s ease both;
 }
 
 .nav-link:hover,
 .nav-link.active {
   background: rgba(90, 143, 174, 0.14);
   color: var(--accent-strong);
+  transform: translateX(6px);
+}
+
+nav .nav-link:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+nav .nav-link:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+nav .nav-link:nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+nav .nav-link:nth-child(5) {
+  animation-delay: 0.24s;
+}
+
+nav .nav-link:nth-child(6) {
+  animation-delay: 0.3s;
 }
 
 .content {
@@ -90,6 +112,25 @@ section {
   padding: 28px;
   margin-bottom: 22px;
   box-shadow: 0 20px 60px rgba(28, 45, 58, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: card-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+section:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 78px rgba(28, 45, 58, 0.14);
+}
+
+.content section:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.content section:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+.content section:nth-of-type(4) {
+  animation-delay: 0.3s;
 }
 
 section h2 {
@@ -172,7 +213,7 @@ section ul li {
 .robotics-section {
   position: relative;
   overflow: hidden;
-  isolation: isolate;
+  background: transparent;
   min-height: 360px;
 }
 
@@ -182,7 +223,7 @@ section ul li {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
+  z-index: 0;
 }
 
 .robotics-section::after {
@@ -190,7 +231,30 @@ section ul li {
   position: absolute;
   inset: 0;
   background: rgba(12, 23, 35, 0.5);
-  z-index: -1;
+  z-index: 1;
+}
+
+.robotics-section h2,
+.robotics-section p {
+  position: relative;
+  z-index: 2;
+}
+
+.robotics-video {
+  position: relative;
+  z-index: 2;
+  margin-top: 18px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+}
+
+.robotics-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
 }
 
 .robotics-section h2,
@@ -198,6 +262,51 @@ section ul li {
 .robotics-section strong {
   color: #f7fbff;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toc-link-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    animation: none;
+    transition: none;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    transform: none;
+  }
+
+  section {
+    animation: none;
+    transition: none;
+  }
+
+  section:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 860px) {
