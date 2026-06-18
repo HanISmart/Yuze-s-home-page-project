@@ -39,10 +39,34 @@ body {
   gap: 24px;
 }
 
+.brand-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .brand {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--accent-strong);
+}
+
+.animated-67 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 72px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 107, 132, 0.2);
+  background: linear-gradient(120deg, rgba(90, 143, 174, 0.24), rgba(255, 255, 255, 0.92));
+  color: var(--accent-strong);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 0 rgba(90, 143, 174, 0.5);
+  animation: float-67 2.4s ease-in-out infinite, pulse-67 2.4s ease-out infinite;
 }
 
 nav {
@@ -283,6 +307,29 @@ section ul li {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
+.frc-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  color: #f7fbff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.frc-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.2));
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
 @keyframes card-in {
   from {
     opacity: 0;
@@ -307,7 +354,36 @@ section ul li {
   }
 }
 
+@keyframes float-67 {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-4px) scale(1.04);
+  }
+}
+
+@keyframes pulse-67 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(90, 143, 174, 0.45);
+  }
+
+  70% {
+    box-shadow: 0 0 0 16px rgba(90, 143, 174, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(90, 143, 174, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .animated-67 {
+    animation: none;
+  }
+
   .nav-link {
     animation: none;
     transition: none;
